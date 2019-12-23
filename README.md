@@ -9,7 +9,7 @@ My lexical analyzer and Parser
  3. token table and parsing_table.json are generated.
  4. You can see the printed result which code is correct or not.
  
- 
+ <br><br><br>
 ## The process of parser
 
 1. creating a LL(1) parsing table
