@@ -1,0 +1,1 @@
+[('INT', 'int'), ('ID', 'main'), ('LPAREN', '('), ('RPAREN', ')'), ('LCURLYBRACE', '{'), ('INT', 'int'), ('ID', 'a'), ('ASSIGNMENT', '='), ('DIGIT', '10'), ('SEMICOLON', ';'), ('INT', 'int'), ('ID', 'b'), ('ASSIGNMENT', '='), ('DIGIT', '20'), ('SEMICOLON', ';'), ('RETURN', 'return'), ('ID', 'a'), ('PLUS', '+'), ('ID', 'b'), ('SEMICOLON', ';'), ('RCURLYBRACE', '}')]

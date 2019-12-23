@@ -1,0 +1,16 @@
+table,vtype,num,literal,id,if,else,while,return,addsub,multidiv,assign,comp,semi,comma,lparen,rparen,lbrace,rbrace
+CODE,CODE -> vtype id DECL CODE,,,,,,,,,,,,,,,,,
+DECL,,,,,,,,,,,,,DECL -> semi,,DECL -> lparen ARG rparen lbrace BLOCK RETURN rbrace,,,
+ARG,ARG -> vtype id MOREARGS,,,,,,,,,,,,,,,ARG -> epsilon,,
+MOREARGS,,,,,,,,,,,,,,MOREARGS -> comma vtype id MOREARGS,,MOREARGS -> epsilon,,
+BLOCK,BLOCK -> STMT BLOCK,,,BLOCK -> STMT BLOCK,BLOCK -> STMT BLOCK,,BLOCK -> STMT BLOCK,BLOCK -> epsilon,,,,,,,,,,BLOCK -> epsilon
+STMT,STMT -> vtype id semi,,,STMT -> id RHSORFCALL semi,STMT -> if lparen COND rparen lbrace BLOCK rbrace else lbrace BLOCK rbrace,,STMT -> while lparen COND rparen lbrace BLOCK rbrace,,,,,,,,,,,
+RHS,,RHS -> EXPR,RHS -> literal,RHS -> EXPR,,,,,,,,,,,RHS -> EXPR,,,
+RHSORFCALL,,,,,,,,,,,RHSORFCALL -> assign RHS,,,,,,,
+EXPR,,EXPR -> TERM EXPR2,,EXPR -> TERM EXPR2,,,,,,,,,,,EXPR -> TERM EXPR2,,,
+EXPR2,,,,,,,,,EXPR2 -> addsub EXPR,,,,EXPR2 -> epsilon,,,EXPR2 -> epsilon,,
+TERM,,TERM -> FACTOR TERM2,,TERM -> FACTOR TERM2,,,,,,,,,,,TERM -> FACTOR TERM2,,,
+TERM2,,,,,,,,,TERM2 -> epsilon,TERM2 -> multidiv TERM,,,TERM2 -> epsilon,,,TERM2 -> epsilon,,
+FACTOR,,FACTOR -> num,,FACTOR -> id,,,,,,,,,,,FACTOR -> lparen EXPR rparen,,,
+COND,,COND -> FACTOR comp FACTOR,,COND -> FACTOR comp FACTOR,,,,,,,,,,,COND -> FACTOR comp FACTOR,,,
+RETURN,,,,,,,,RETURN -> return FACTOR semi,,,,,,,,,,

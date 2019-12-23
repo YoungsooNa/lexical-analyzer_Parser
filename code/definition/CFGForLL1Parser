@@ -1,0 +1,16 @@
+CODE -> vtype id DECL CODE | epsilon
+DECL -> semi | lparen ARG rparen lbrace BLOCK RETURN rbrace
+ARG -> vtype id MOREARGS | epsilon
+MOREARGS -> comma vtype id MOREARGS | epsilon
+BLOCK -> STMT BLOCK | epsilon
+STMT -> vtype id semi | id RHSORFCALL semi | if lparen COND rparen lbrace BLOCK rbrace else lbrace BLOCK rbrace | while lparen COND rparen lbrace BLOCK rbrace
+RHSORFCALL -> assign RHS
+RHS -> EXPR | literal
+EXPR -> TERM EXPR2
+EXPR2 -> addsub EXPR | epsilon
+TERM -> FACTOR TERM2
+TERM2 -> multidiv TERM | epsilon
+FACTOR -> lparen EXPR rparen | id | num
+COND -> FACTOR comp FACTOR
+RETURN -> return FACTOR semi
+

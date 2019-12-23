@@ -1,0 +1,6 @@
+E -> T EPRIME
+EPRIME -> + T EPRIME | epsilon
+T -> F TPRIME
+TPRIME -> * F TPRIME | epsilon
+F -> ( E ) | id
+
